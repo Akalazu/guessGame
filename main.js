@@ -68,7 +68,7 @@ function isPrime(n) {
 //End of functions
 
 let rand = randNum();
-// document.write(rand);
+document.write(rand);
 if (rand > 10 && isPrime(rand) === true) {
   spitOutput.append("hint : number is two digit and is a prime number");
 } else if (rand < 10 && isPrime(rand) === true) {
@@ -91,7 +91,6 @@ submitBtn.addEventListener("click", function (e) {
     });
   } else if (Number(inputValue) === rand) {
     feedBack.innerHTML = "Correct Guess! 🎉🥳";
-    highScore.innerHTML = rand;
     output.style.backgroundColor = "rgb(1, 75, 1)";
     setInterval(pageReload, 1000);
   } else {
@@ -101,10 +100,10 @@ submitBtn.addEventListener("click", function (e) {
   }
 });
 
-submitBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  console.log(document.getElementById("num-input").value);
-});
+// submitBtn.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   console.log(document.getElementById("num-input").value);
+// });
 
 // function convertTemp(){
 //     const tempValues = {
