@@ -18,12 +18,10 @@
       display: flex;
       justify-content: center;
       margin: 15px auto;
-      width: 90%;
+      width: 70%;
       position: relative;
       background-color: black;
-      /* background-color: rgb(1, 75, 1); */
       color: #fff;
-      /* font-weight: 900; */
       text-transform: uppercase;
       padding: 10px;
       text-align: center;
@@ -31,25 +29,48 @@
     .main-content {
       background-color: #4e7d96;
       /* height: calc(100vh - 300px); */
-      height: 70%;
+      height: 50%;
       padding: 15px;
       width: 70%;
       position: absolute;
-      top: 60%;
+      top: 65%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    @media(max-height: 600px){
-      .feedback-info{
+    @media (max-height: 600px) {
+      .feedback-info {
         font-size: 22px;
       }
     }
+
     .inner-content {
       text-align: center;
     }
     .inner-content h2 {
       text-transform: uppercase;
       color: #0a0d25;
+    }
+    .randNum {
+      /* position: relative; */
+      font-size: 10px;
+      width: 80%;
+      height: 50px;
+      margin: 10px auto;
+      padding: 10px;
+      font-weight: bolder;
+      background-color: grey;
+      text-align: center;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100px;
+    }
+    @media (min-width: 700px) {
+      .randNum {
+        font-size: 20px;
+        padding: 20px;
+      }
     }
     #selectOption {
       margin-top: 50px;
@@ -97,9 +118,11 @@
   <body>
     <div class="output">
       <div class="feedback">
-        <h2 class="feedback-info">Guess any number from 1 - 20 🤔</h2>
+        <h3 class="feedback-info">Guess any number from 1 - 20 🤔</h3>
       </div>
     </div>
+    <div class="randNum"></div>
+
     <div class="main-content">
       <div class="inner-content">
         <h2>Guess the number</h2>
@@ -117,10 +140,10 @@
           <button class="submit-btn">Submit</button>
           <div class="other-content">
             <div class="score-reading">
-              <div class="highscore">
+              <!-- <div class="highscore">
                 <label> <strong>Highscore:</strong> </label>
                 <span class="high-score">32</span>
-              </div>
+              </div> -->
               <div class="time-remain">
                 <label> <strong>Trials Remaining:</strong> </label>
                 <span class="life-remaining">10</span>

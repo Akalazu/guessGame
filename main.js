@@ -3,21 +3,31 @@ let feedBack = document.querySelector(".feedback-info");
 let output = document.querySelector(".output");
 let lifeRemaining = document.querySelector(".life-remaining");
 let highScore = document.querySelector(".high-score");
+let spitOutput = document.querySelector(".randNum");
 let inputVal;
 
 // FUNCTIONS
+// let timeOutFunc = () => {
+//   setTimeout(function () {
+//     location.reload();
+//   }, 100);
+// };
 function operations() {
   inputVal = parseInt(lifeRemaining.innerHTML) - 1;
   lifeRemaining.innerHTML = inputVal;
   if (inputVal === 0) {
-    swal({
-      title: "Oops!",
-      text: "You've reached maximum trials, refresh your browser to try again",
-      type: "warning",
-      confirmButtonClass: "btn-outline-success",
-      confirmButtonText: "Okay, Cool!",
-    });
-    // setTimeout(location.reload(), 1000);
+    swal(
+      {
+        title: "Oops!",
+        text: "You've reached maximum trials",
+        type: "warning",
+        confirmButtonClass: "btn-outline-success",
+        confirmButtonText: "Okay, Cool!",
+      },
+      function () {
+        location.reload();
+      } //reloads page after clicking okay
+    );
   }
 } //Decreases the trials remaining and sends an alert when it is equals 0
 
@@ -26,22 +36,48 @@ function randNum() {
 } //generates random number
 
 function pageReload() {
-  swal({
-    title: "Correct!",
-    text: "The page would reload in 5 secs",
-    type: "success",
-    showConfirmButton: false,
-    timer: 5000,
-  });
-  setTimeout(function () {
-    location.reload();
-  }, 3000);
+  swal(
+    {
+      title: "Correct!",
+      text: "The page would reload in 5 secs",
+      type: "success",
+      showConfirmButton: false,
+      timer: 5000,
+    },
+    setTimeout(function () {
+      location.reload();
+    }, 3000)
+  );
 } // reloads page after 3 secs
 
+function isPrime(n) {
+  if (n === 1 || n < 1) {
+    return false;
+  } else if (n === 2) {
+    return true;
+  } else {
+    for (let i = 2; i < n; i++) {
+      if (n % i === 0) {
+        console.log(n, i);
+        return false;
+      }
+    }
+    return true;
+  } //check if random number is a prime number
+}
 //End of functions
 
 let rand = randNum();
-document.write(rand);
+// document.write(rand);
+if (rand > 10 && isPrime(rand) === true) {
+  spitOutput.append("hint : number is two digit and is a prime number");
+} else if (rand < 10 && isPrime(rand) === true) {
+  spitOutput.append("hint : number is one digit and is a prime number");
+} else if (rand < 10 && isPrime(rand) === false) {
+  spitOutput.append("hint : number is one digit and is not a  prime number");
+} else {
+  spitOutput.append("hint: number is two digit and is not a prime number");
+}
 
 submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -51,7 +87,7 @@ submitBtn.addEventListener("click", function (e) {
       title: "Error!",
       text: "Input Field Cannot be empty",
       type: "error",
-      confirmButtonClass: "btn-danger",
+      confirmButtonClass: "btn-outline-danger",
     });
   } else if (Number(inputValue) === rand) {
     feedBack.innerHTML = "Correct Guess! 🎉🥳";
