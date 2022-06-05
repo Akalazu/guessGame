@@ -12,12 +12,12 @@ function operations() {
   if (inputVal === 0) {
     swal({
       title: "Oops!",
-      text: "You've reached maximum trials, Kindly try again",
+      text: "You've reached maximum trials, refresh your browser to try again",
       type: "warning",
       confirmButtonClass: "btn-outline-success",
       confirmButtonText: "Okay, Cool!",
-    }),
-      location.reload();
+    });
+    // setTimeout(location.reload(), 1000);
   }
 } //Decreases the trials remaining and sends an alert when it is equals 0
 
