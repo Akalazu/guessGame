@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/sweetalert.css" />
+    <link rel="stylesheet" href="./assets/bootstrap.min.css" />
+  </head>
+  <style>
+    body {
+      /* font-family: Consolas, "Courier New", monospace; */
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-color: #e3edf2;
+    }
+    .output {
+      display: flex;
+      justify-content: center;
+      margin: 15px auto;
+      width: 90%;
+      position: relative;
+      background-color: black;
+      /* background-color: rgb(1, 75, 1); */
+      color: #fff;
+      /* font-weight: 900; */
+      text-transform: uppercase;
+      padding: 10px;
+      text-align: center;
+    }
+    .main-content {
+      background-color: #4e7d96;
+      height: calc(100vh - 300px);
+      padding: 15px;
+      width: 70%;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .inner-content {
+      text-align: center;
+    }
+    .inner-content h2 {
+      text-transform: uppercase;
+      color: #0a0d25;
+    }
+    #selectOption {
+      margin-top: 50px;
+      /* width: 400px; */
+      text-align: center;
+      border-radius: 30px;
+    }
+    #selectOption:active {
+      outline: none;
+      border: none;
+    }
+    #selectOption:focus {
+      outline: none;
+      border: none;
+    }
+    .submit-btn {
+      margin-top: 20px;
+      border: none;
+      padding: 10px;
+      width: 80%;
+      background-color: #0a0d25;
+      color: white;
+      border-radius: 30px;
+    }
+    .submit-btn:hover {
+      background-color: white;
+      color: #0a0d25;
+    }
+    .other-content {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .score-reading {
+      display: inline;
+    }
+    .score-reading .highscore {
+      padding: 15px;
+    }
+    .other-content .feedback {
+      width: 50%;
+    }
+  </style>
+
+  <body>
+    <div class="output">
+      <div class="feedback">
+        <h2 class="feedback-info">Guess any number from 1 - 20 🤔</h2>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="inner-content">
+        <h2>Guess the number</h2>
+        <form>
+          <label for="num-input">Input Number</label>
+          <input type="number" name="num-input" id="num-input" />
+          <br />
+          <!-- <select name="selectOption" id="selectOption">
+                <option value="JAMB">JAMB</option>
+                <option value="WAEC">WAEC</option>
+                <option value="NECO">NECO</option>
+                <option value="PUTME">PUTME</option>
+            </select> -->
+          <br />
+          <button class="submit-btn">Submit</button>
+          <div class="other-content">
+            <div class="score-reading">
+              <div class="highscore">
+                <label> <strong>Highscore:</strong> </label>
+                <span class="high-score">32</span>
+              </div>
+              <div class="time-remain">
+                <label> <strong>Trials Remaining:</strong> </label>
+                <span class="life-remaining">10</span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./assets/bootstrap.min.js"></script>
+    <script src="./assets/sweetalert.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
