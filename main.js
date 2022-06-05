@@ -65,10 +65,10 @@ submitBtn.addEventListener("click", function (e) {
   }
 });
 
-// submitBtn.addEventListener("click", (event) => {
-//   event.preventDefault();
-//   console.log(document.getElementById("num-input").value);
-// });
+submitBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  console.log(document.getElementById("num-input").value);
+});
 
 // function convertTemp(){
 //     const tempValues = {
