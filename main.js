@@ -68,14 +68,14 @@ function isPrime(n) {
 
 let rand = randNum();
 // document.write(rand);
-if (rand > 10 && isPrime(rand) === true) {
-  spitOutput.append("hint : number is two digit and is a prime number");
-} else if (rand < 10 && isPrime(rand) === true) {
-  spitOutput.append("hint : number is one digit and is a prime number");
-} else if (rand < 10 && isPrime(rand) === false) {
-  spitOutput.append("hint : number is one digit and is not a  prime number");
+if (rand > 9) {
+  isPrime(rand)
+    ? spitOutput.append("hint : number is two digit and is a prime number")
+    : spitOutput.append("hint : number is two digit and is not a prime number");
 } else {
-  spitOutput.append("hint: number is two digit and is not a prime number");
+  !isPrime(rand)
+    ? spitOutput.append("hint : number is one digit and is not a  prime number")
+    : spitOutput.append("hint: number is one digit and is a prime number");
 }
 
 submitBtn.addEventListener("click", function (e) {
@@ -93,9 +93,14 @@ submitBtn.addEventListener("click", function (e) {
     output.style.backgroundColor = "rgb(1, 75, 1)";
     setInterval(pageReload, 1000);
   } else {
+    output.style.backgroundColor = "rgb(231, 19, 19)";
     feedBack.innerHTML = "Oops!😔 You guessed wrong. Try Again. ";
     feedBack.style.fontSize = "18px";
-    output.style.backgroundColor = "rgb(231, 19, 19)";
+    setTimeout(() => {
+      feedBack.style.fontSize = "28px";
+      output.style.backgroundColor = "black";
+      feedBack.innerHTML = "Don't forget, number is from 1 - 20";
+    }, 2000);
     operations();
   }
 });
