@@ -64,6 +64,11 @@ function isPrime(n) {
     return true;
   } //check if random number is a prime number
 }
+
+const displayMessage = function (message, outPut) {
+  feedBack.textContent = message;
+  output.style.backgroundColor = outPut;
+}; //displays message and changes output bg color
 //End of functions
 
 let rand = randNum();
@@ -89,17 +94,17 @@ submitBtn.addEventListener("click", function (e) {
       confirmButtonClass: "btn-outline-danger",
     });
   } else if (Number(inputValue) === rand) {
-    feedBack.innerHTML = "Correct Guess! 🎉🥳";
-    output.style.backgroundColor = "rgb(1, 75, 1)";
+    displayMessage("Correct Guess! 🎉🥳", "rgb(1, 75, 1)");
     setInterval(pageReload, 1000);
   } else {
-    output.style.backgroundColor = "rgb(231, 19, 19)";
-    feedBack.innerHTML = "Oops!😔 You guessed wrong. Try Again. ";
+    displayMessage(
+      "Oops!😔 You guessed wrong. Try Again. ",
+      "rgb(231, 19, 19)"
+    );
     feedBack.style.fontSize = "18px";
     setTimeout(() => {
-      feedBack.style.fontSize = "28px";
-      output.style.backgroundColor = "black";
-      feedBack.innerHTML = "Don't forget, number is from 1 - 20";
+      // feedBack.style.fontSize = "28px";
+      displayMessage("Don't forget, number is from 1 - 20", "black");
     }, 2000);
     operations();
   }
